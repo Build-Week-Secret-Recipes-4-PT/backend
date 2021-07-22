@@ -6,7 +6,10 @@
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "up": "knex migrate:up",
+    "down": "knex migrate:down",
+    "latest": "knex migrate:latest",
+    "rollback": "knex migrate:rollback"
   },
   "repository": {
     "type": "git",
@@ -20,7 +23,9 @@
   },
   "homepage": "https://github.com/Build-Week-Secret-Recipes-4-PT/backend#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "knex": "^0.95.7",
+    "sqlite3": "^5.0.2"
   },
   "devDependencies": {
     "eslint": "^7.31.0",
