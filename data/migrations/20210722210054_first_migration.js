@@ -12,6 +12,12 @@ exports.up = function(knex) {
         table.text("ingredients", 128).notNullable();
         table.text("instructions", 128).notNullable();
         table.text("category", 128).notNullable();
+        table.integer("user_id")
+          .unsigned()
+          .notNullable()
+          .references("user_id")
+          .inTable("users")
+          .onDelete("RESTRICT");
     });
 };
 
