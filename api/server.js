@@ -6,6 +6,7 @@ const KnexSessionStore = require("connect-session-knex")(session);
 
 const usersRouter = require("./users/users-router");
 const authRouter = require("./auth/auth-router");
+const auth2Router = require("./auth2/auth2-router");
 
 const server = express();
 
@@ -34,6 +35,7 @@ server.use(cors());
 
 server.use("/api/users", usersRouter);
 server.use("/api/auth", authRouter);
+server.use("/api/auth2", auth2Router);
 
 server.get("/", (req, res) => {
     res.status(200).json({
