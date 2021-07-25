@@ -12,7 +12,7 @@ const server = express();
 
 server.use(session({
     name:"sessionId",
-    secret: "keep it secret, keep it safe",
+    secret: "keepitsecret",
     cookie:{
       maxAge: 1000 * 60 * 60,
       secure:false,
