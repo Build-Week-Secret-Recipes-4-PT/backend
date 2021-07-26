@@ -17,11 +17,11 @@
 
 ```
 {
-	title: "Chicken Casserole",
-	source: "Grandma",
-	incredients: "Cream of Chicken, Chicken, Noodles, Tears",
-  instructions: "Cook until edible.",
-  category: "Baked"
+title: "Chicken Casserole",
+source: "Grandma",
+incredients: "Cream of Chicken, Chicken, Noodles, Tears",
+instructions: "Cook until edible.",
+category: "Baked"
 }
 ```
 
@@ -39,5 +39,5 @@
 |  **Auth**   |  POST  | /auth/register    | Creates a new user                        | email, password    |
 |             |  POST  | /auth/login       | Logs in user                              | email, password    |
 |             |  GET   | /auth/logout      | Logs out user                             | email, password    |
-| **Second**  |  POST  | /auth2/register   | Creates a new user                        | email, password    |
-|  **Auth**   |  POST  | /auth2/login      | Logs in and authenticates user with token | email, password    |
+|**Alt Auth** |  POST  | /auth2/register   | Creates a new user                        | email, password    |
+|             |  POST  | /auth2/login      | Logs in and authenticates user with token | email, password    |
