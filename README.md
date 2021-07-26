@@ -1,6 +1,6 @@
 # back-end
 
-## Deployed at: https://recipesbuild.herokuapp.com/
+## Deployed at: https://recipesbuild.herokuapp.com/api/
 
 ## Request Data Shapes:
 
