@@ -21,7 +21,7 @@ server.use(session({
     resave:false,
     saveUninitialized:false,
     store: new KnexSessionStore({
-      knex:require("../data/db-config"),
+      knex:require("./data/db-config"),
       tablename:"sessions",
       sidfieldname:"sid",
       createTable:true,
