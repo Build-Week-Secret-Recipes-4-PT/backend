@@ -4,6 +4,12 @@ const Recipes = require("../recipes/recipes-model");
 const { restricted, validateUserId } = require("./users-middleware");
 const { validateRecipe } = require("../recipes/recipes-middleware");
 
+router.get("/", restricted, (req, res, next) => {
+    Users.find()
+        .then(users => res.json(users))
+        .catch(err => next(err));
+});
+
 router.get("/:id", restricted, validateUserId, (req, res) => {
     res.json(req.user);
 });
