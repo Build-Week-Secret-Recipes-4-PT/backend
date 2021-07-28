@@ -1,5 +1,8 @@
 const jwt = require("jsonwebtoken");
 const { jwtSecret } = require("../../config/secrets");
+const Users = require("./users-model");
+
+// FOR SESSIONS
 
 // const restricted = (req, res, next) => {
 //     if(req.session.user){
@@ -10,7 +13,8 @@ const { jwtSecret } = require("../../config/secrets");
 //         });
 //     }
 // };
-//! For Sessions
+
+// FOR JWT TOKEN
 
 // const restricted = (req, res, next) => {
 //     const token = req.headers.authorization;
@@ -32,7 +36,8 @@ const { jwtSecret } = require("../../config/secrets");
 //         });
 //     }
 // };
-//! For JWT Token
+
+// FOR SESSIONS AND JWT TOKEN
 
 const restricted = (req, res, next) => {
     const token = req.headers.authorization;
@@ -56,8 +61,21 @@ const restricted = (req, res, next) => {
         });
     }
 };
-//! For sessions and token
+
+const validateUserId = async (req, res, next) => {
+    const id = req.params.id;
+    const userId = await Users.findById(id);
+    if(!userId){
+        res.status(404).json({
+            message: "User not found."
+        });
+    } else {
+        req.user = userId;
+        next();
+    }
+};
 
 module.exports = {
-    restricted
+    restricted,
+    validateUserId
 };

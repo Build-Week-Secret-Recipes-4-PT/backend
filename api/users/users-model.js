@@ -17,10 +17,17 @@ const add = async (body) => {
     return findById(user_id);
 };
 
+const findUserRecipes = (userId) => {
+    return db("recipes as r")
+        .join("users as u", "u.user_id", "r.user_id")
+        .select("r.title", "r.source", "r.ingredients", "r.instructions", "r.category")
+        .where("r.user_id", userId);
+};
 
 module.exports = {
     find,
     findBy,
     findById,
-    add
+    add,
+    findUserRecipes
 };
