@@ -29,10 +29,10 @@ category: "Baked"
 
 |    Route    | Method | Endpoint          | Description                               | Token Required     |
 | :---------: | :----: | ----------------- | ----------------------------------------- | ------------------ |
-|  **Auth**   |  POST  | /auth/register    | Creates a new user                        | email, password    |
+|  **Sessions**   |  POST  | /auth/register    | Creates a new user                        | email, password    |
 |             |  POST  | /auth/login       | Logs in user                              | email, password    |
 |             |  GET   | /auth/logout      | Logs out user                             | email, password    |
-|**Alt Auth** |  POST  | /auth2/register   | Creates a new user                        | email, password    |
+|**JWT Token** |  POST  | /auth2/register   | Creates a new user                        | email, password    |
 |             |  POST  | /auth2/login      | Logs in and authenticates user with token | email, password    |
 | **Recipes** |  GET   | /:id/recipes      | Returns a list of all available recipes   | Yes                |
 |             |  POST  | /:id/recipes      | Adds and returns a newly created recipe   | Yes                |
