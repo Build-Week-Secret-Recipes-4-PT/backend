@@ -34,10 +34,7 @@ category: "Baked"
 |             |  GET   | /auth/logout      | Logs out user                             | email, password    |
 |**Alt Auth** |  POST  | /auth2/register   | Creates a new user                        | email, password    |
 |             |  POST  | /auth2/login      | Logs in and authenticates user with token | email, password    |
-| **Recipes** |  GET   | /recipes          | Returns a list of all available recipes   | Yes                |
-|             |  GET   | /recipes/:id      | Returns specified recipe by id            | Yes                |
-|             |  GET   | /recipes/title    | Returns specified recipe by title         | Yes                |
-|             |  GET   | /recipes/category | Returns specified recipe by category      | Yes                |
-|             |  POST  | /recipes          | Adds and returns a newly created recipe   | Yes                |
-|             |  PUT   | /recipes/:id      | Edit a recipe by id                       | Yes                |
-|             | DELETE | /recipes/:id      | Delete a recipe by id                     | Yes                |
+| **Recipes** |  GET   | /:id/recipes      | Returns a list of all available recipes   | Yes                |
+|             |  POST  | /:id/recipes      | Adds and returns a newly created recipe   | Yes                |
+|             |  PUT   | /:id/recipes/:recipeId| Edit a recipe by id                       | Yes                |
+|             | DELETE | /:id/recipes/:recipeId      | Delete a recipe by id                     | Yes                |
