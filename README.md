@@ -36,5 +36,6 @@ category: "Baked"
 |             |  POST  | /auth2/login      | Logs in and authenticates user with token | email, password    |
 | **Recipes** |  GET   | /:id/recipes      | Returns a list of all available recipes   | Yes                |
 |             |  POST  | /:id/recipes      | Adds and returns a newly created recipe   | Yes                |
+|             |  GET   | /:id/recipes/:recipeId| Get a recipe by id                       | Yes                |
 |             |  PUT   | /:id/recipes/:recipeId| Edit a recipe by id                       | Yes                |
 |             | DELETE | /:id/recipes/:recipeId      | Delete a recipe by id                     | Yes                |
