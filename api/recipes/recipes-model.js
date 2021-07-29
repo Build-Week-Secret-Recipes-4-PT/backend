@@ -18,16 +18,15 @@ const insert = (recipe) => {
         });
 };
 
-const update = (recipe_id, changes) => {
-    return db('recipes')
-    .where({ recipe_id })
-    .update(changes);
+const update = async (recipe_id, changes) => {
+    await db('recipes').where({ recipe_id }).update(changes);
+    return getById(recipe_id);
 };
 
-const remove = recipe_id => {
-    return db('recipes')
-    .where({ recipe_id })
-    .del();
+const remove = async recipe_id => {
+    const removed = await getById(recipe_id);
+    await db('recipes').where({ recipe_id }).del();
+    return removed;
 };
 
 module.exports = {

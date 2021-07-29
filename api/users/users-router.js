@@ -2,7 +2,7 @@ const router = require("express").Router();
 const Users = require("./users-model");
 const Recipes = require("../recipes/recipes-model");
 const { restricted, validateUserId } = require("./users-middleware");
-const { validateRecipe } = require("../recipes/recipes-middleware");
+const { validateRecipe, validateRecipeId } = require("../recipes/recipes-middleware");
 
 router.get("/", restricted, (req, res, next) => {
     Users.find()
@@ -28,12 +28,25 @@ router.post("/:id/recipes", restricted, validateUserId, validateRecipe, (req, re
         .catch(err => next(err));
 });
 
-router.put("/:id/recipes/:recipeId", restricted, (req, res, next) => {
-
+router.get("/:id/recipes/:recipeId", restricted, validateUserId, validateRecipeId, (req, res) => {
+    res.json(req.recipe);
 });
 
-router.delete("/:id/recipes/:recipeId", restricted, (req, res, next) => {
+router.put("/:id/recipes/:recipeId", restricted, validateUserId, validateRecipeId, validateRecipe, (req, res, next) => {
+    const id = req.params.recipeId;
+    const body = req.body;
+    Recipes.update(id, body)
+        .then(recipe => {
+            res.json(recipe);
+        })
+        .catch(err => next(err));
+});
 
+router.delete("/:id/recipes/:recipeId", restricted, validateUserId, validateRecipeId, (req, res, next) => {
+    const id = req.params.recipeId;
+    Recipes.remove(id)
+        .then(recipe => res.json(recipe))
+        .catch(err => next(err));
 });
 
 module.exports = router;
